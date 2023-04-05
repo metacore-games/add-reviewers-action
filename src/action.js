@@ -44,7 +44,7 @@ async function action() {
         }
 
         // Remove the current user who created the PR
-        const userRemovedReviewers = reviewers.filter(reviewer => reviewer != user);
+        const userRemovedReviewers = reviewers.filter(reviewer => reviewer.toLowerCase() != user.toLowerCase());
         const finalReviewers = [];
         userRemovedReviewers.forEach(reviewer => {
             const rev = reviews.get(reviewer);
